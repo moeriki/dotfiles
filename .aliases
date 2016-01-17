@@ -12,6 +12,8 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
+alias gr="git log --graph --full-history --all --color --pretty=tformat:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m'"
+alias fix="git diff --name-only --diff-filter=U | uniq | xargs atom"
 alias h="history"
 alias j="jobs"
 
