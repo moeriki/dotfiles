@@ -99,6 +99,11 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
+	editor = atom --wait
+	mergeoptions = --no-edit
+
+	# insanely beautiful diffs
+	pager = bash -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
 
 [color]
 
@@ -119,6 +124,13 @@
 	old = red # deletions
 	new = green # additions
 
+[color "diff-highlight"]
+
+	oldNormal = "red bold"
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
 [color "status"]
 
 	added = yellow
@@ -126,7 +138,7 @@
 	untracked = cyan
 
 [diff]
-
+	tool = Kaleidoscope
 	# Detect copies as well as renames
 	renames = copies
 
@@ -143,6 +155,8 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = Kaleidoscope
+	commit = no
 
 [push]
 
@@ -174,3 +188,33 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+
+	name = Dieter Luypaert
+	email = dieterluypaert@gmail.com
+
+[credential]
+
+	helper = osxkeychain
+
+[mergetool "Kaleidoscope"]
+
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+
+[difftool "Kaleidoscope"]
+
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+
+	prompt = false
+
+[mergetool]
+
+	prompt = false
+
+[fetch]
+
+	prune = true
