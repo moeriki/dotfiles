@@ -50,13 +50,6 @@ brew install homebrew/dupes/openssh
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
-brew install p7zip
-brew install rename
-brew install rhino
-brew install speedtest_cli
-brew install ssh-copy-id
-brew install tree
-brew install webkit2png
 
 # Remove outdated versions from the cellar.
 brew cleanup
