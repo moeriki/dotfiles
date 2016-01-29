@@ -47,5 +47,8 @@ brew install imagemagick --with-webp
 brew install michaeldfallen/formula/git-radar
 brew install tree
 
+# Install autoenv
+brew install autoenv
+
 # Remove outdated versions from the cellar.
 brew cleanup
