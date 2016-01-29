@@ -1,0 +1,8 @@
+# Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# homebrew sbin
+export PATH="/usr/local/sbin:$PATH";
+
+# userdir bin
+export PATH="$HOME/bin:$PATH";
