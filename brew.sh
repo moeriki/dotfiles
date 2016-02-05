@@ -46,6 +46,7 @@ brew install git-lfs
 brew install imagemagick --with-webp
 brew install michaeldfallen/formula/git-radar
 brew install tree
+brew install shellcheck
 
 # Install autoenv
 brew install autoenv
