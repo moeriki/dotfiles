@@ -45,4 +45,4 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal" killall;
 
 # Activate autoenv
-source /usr/local/opt/autoenv/activate.sh
+source /usr/local/opt/autoenv/activate.sh && cd .
