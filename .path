@@ -1,3 +1,8 @@
+#!/bin/env bash
+
+BASE_PATH=$(cat /etc/paths | tr '\n' ':')
+export PATH=$BASE_PATH
+
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
