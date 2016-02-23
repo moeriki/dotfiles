@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# shellcheck disable=SC1090
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+
+node_version=`cat package.json | jq .engines.node | grep -o '[0-9.]\+'`
+
+nvm use $node_version
