@@ -51,5 +51,8 @@ brew install shellcheck
 # Install autoenv
 brew install autoenv
 
+# Install trash
+brew install rmtrash
+
 # Remove outdated versions from the cellar.
 brew cleanup
