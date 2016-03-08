@@ -47,6 +47,7 @@ brew install imagemagick --with-webp
 brew install michaeldfallen/formula/git-radar
 brew install tree
 brew install shellcheck
+brew install jq
 
 # Install autoenv
 brew install autoenv
