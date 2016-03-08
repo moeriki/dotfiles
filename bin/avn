@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# shellcheck disable=SC1090
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+
+pkg=`cat package.json`
+node_version=`echo $pkg | jq .engines.node | grep -o '[0-9.]\+'`
+# npm_version`echo $pkg | jq .engines.npm | grep -o '[0-9.]\+'`
+
+# current_npm_version=`npm --version | grep -o '[0-9.]\+'`
+
+nvm use $node_version
