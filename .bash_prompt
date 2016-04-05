@@ -65,7 +65,7 @@ PS1+="\[${green}\]\w"; # working directory
 PS1+="\$(git-radar --bash --fetch)"
 if [[ -f $(which node) ]]; then
 	PS1+="\[${gray}\] on node";
-	PS1+="\[${yellow}\] \$(node --version)";
+	PS1+="\[${yellow}\] \$(node --version | tr -d v)";
 	PS1+="\[${gray}\] / npm";
 	PS1+="\[${yellow}\] \$(npm --version)";
 fi
