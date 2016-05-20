@@ -52,6 +52,8 @@
 	# Open files that are changed in editor
 	wip = "!git status -s | grep -v '\bD\b' | cut -d ' ' -f 3 | xargs atom"
 
+	fix = "!git diff --name-only --diff-filter=U | uniq | xargs atom"
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
