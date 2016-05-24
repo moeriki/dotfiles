@@ -31,3 +31,6 @@ Temporary Items
 
 # dotenv files (as used by autoenv)
 .env
+
+# Atom plugin
+.imdone/
