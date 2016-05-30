@@ -50,9 +50,6 @@ brew install tree
 brew install shellcheck
 brew install jq
 
-# Install autoenv
-brew install autoenv
-
 # Install trash
 brew install rmtrash
 
