@@ -34,3 +34,6 @@ Temporary Items
 
 # Atom plugin
 .imdone/
+
+# Redis dumps
+dump.rdb
