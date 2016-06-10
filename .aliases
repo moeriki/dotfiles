@@ -157,4 +157,5 @@ alias startmongod="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb
 alias stopmongod="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 
 # Babel
+alias a="atom"
 alias b="babel-node"
