@@ -116,6 +116,7 @@
 	untracked = cyan
 
 [diff]
+	compactionHeuristic = true
 	tool = Kaleidoscope
 	# Detect copies as well as renames
 	renames = copies
