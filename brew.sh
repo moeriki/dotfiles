@@ -41,9 +41,7 @@ brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 
 # Install other useful binaries.
-brew install git
-brew install git-lfs
-brew install hub
+brew install git git-lfs hub diff-so-fancy
 brew install imagemagick --with-webp
 brew install michaeldfallen/formula/git-radar
 brew install tree

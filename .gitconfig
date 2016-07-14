@@ -81,7 +81,7 @@
 	mergeoptions = --no-edit
 
 	# insanely beautiful diffs
-	pager = bash -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
