@@ -39,17 +39,25 @@ brew install wget --with-iri
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
-
-# Install other useful binaries.
-brew install git git-lfs hub diff-so-fancy
-brew install imagemagick --with-webp
-brew install michaeldfallen/formula/git-radar
 brew install tree
+
+# Git bins
+brew install git git-lfs hub diff-so-fancy
+brew install michaeldfallen/formula/git-radar
+
+# Multimedia
+brew install ffmpeg
+brew install imagemagick --with-webp
+
+# Linting for shell scripts
 brew install shellcheck
+
+# JSON formatting and selecting util
 brew install jq
 
 # Install trash
 brew install rmtrash
 
+brew install
 # Remove outdated versions from the cellar.
 brew cleanup
