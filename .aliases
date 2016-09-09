@@ -13,7 +13,6 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="hub"
 alias h="history"
-alias j="jobs"
 eval "$(hub alias -s)"
 
 alias ni="npm install"
@@ -27,6 +26,8 @@ alias nr="npm run"
 alias nf="npm cache clean && rm -rf node_modules && npm install"
 alias nl="npm list --depth=0"
 alias nlg="npm list --global --depth=0"
+
+alias b="babel-node"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -167,7 +168,3 @@ alias reload="exec $SHELL -l"
 # Start and stop mongod
 alias startmongod="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 alias stopmongod="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-
-# Babel
-alias a="atom"
-alias b="babel-node"

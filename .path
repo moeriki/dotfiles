@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env sh
 
 BASE_PATH=$(cat /etc/paths | tr '\n' ':')
 export PATH=$BASE_PATH
