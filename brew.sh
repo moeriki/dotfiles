@@ -42,7 +42,7 @@ brew install homebrew/dupes/openssh
 brew install tree
 
 # Git bins
-brew install git git-lfs hub diff-so-fancy
+brew install git git-extras git-lfs hub diff-so-fancy
 brew install michaeldfallen/formula/git-radar
 
 # Multimedia
