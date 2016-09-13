@@ -49,6 +49,9 @@ brew install michaeldfallen/formula/git-radar
 brew install ffmpeg
 brew install imagemagick --with-webp
 
+# QuickLook
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
 # Linting for shell scripts
 brew install shellcheck
 
