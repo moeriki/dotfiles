@@ -1,0 +1,3 @@
+[submodule "zsh-better-npm-completion"]
+  path = .oh-my-zsh/custom/plugins/zsh-better-npm-completion
+  url = https://github.com/chaconinc/DbConnector
