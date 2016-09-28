@@ -57,8 +57,8 @@ plugins=(autoenv aws brew colorize git github gitignore npm nvm redis-cli ssh-ag
 
 # User configuration
 
-  export PATH="/Users/moeriki/.nvm/versions/node/v4.4.5/bin:/Users/moeriki/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="~/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
