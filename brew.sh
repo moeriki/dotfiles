@@ -58,6 +58,9 @@ brew install shellcheck
 # JSON formatting and selecting util
 brew install jq
 
+# Mac App Store CLI
+brew install mas
+
 # Install trash
 brew install rmtrash
 
