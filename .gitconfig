@@ -1,7 +1,7 @@
 [alias]
 
 	# Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
+	amend = commit --amend --no-edit --reset-author
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
@@ -37,9 +37,16 @@
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
+	# The first commit of a repository can not be rebased like regular commits,
+	# so it’s good practice to create an empty commit as your repository root.
+	it = "!git init && git commit -m 'root' --allow-empty"
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+	# Please force push
+	please = push --force-with-lease
 
 	# Verbose remotes
 	remotes = remote -v
@@ -55,8 +62,18 @@
 	# Show staged changes
 	staged = diff --staged
 
+	# stash only unstaged changes to tracked files
+	stsh = stash --keep-index
+	# stash untracked and tracked files
+	staash = stash --include-untracked
+	# stash ignored, untracked, and tracked files
+	staaash = stash --all
+
 	# Verbose tags
 	tags = tag -l
+
+	# Merge with merge commit
+	unbranch = merge --no-ff
 
 	# Open files that are changed in editor
 	wip = "!git status -s | grep -v '\bD\b' | cut -d ' ' -f 3 | xargs atom"
