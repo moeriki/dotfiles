@@ -127,6 +127,11 @@ function gz() {
   printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
 
+# Colorize and grep JSON
+function jg() {
+  cat | gron | grep "${1}" | ungron | jq
+}
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$_";
