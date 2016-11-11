@@ -1,220 +1,220 @@
 [alias]
 
-	# Amend the currently staged files to the latest commit
-	amend = commit --amend --no-edit --reset-author
+  # Amend the currently staged files to the latest commit
+  amend = commit --amend --no-edit --reset-author
 
-	# List contributors with number of commits
-	contributors = shortlog --summary --numbered
+  # List contributors with number of commits
+  contributors = shortlog --summary --numbered
 
-	# Credit an author on the latest commit
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  # Credit an author on the latest commit
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
-	# Verbose branches
-	branches = branch -a -v
+  # Verbose branches
+  branches = branch -a -v
 
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  # Show the diff between the latest commit and the current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-	# Remove branches that have already been merged with master
-	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  # Remove branches that have already been merged with master
+  # a.k.a. ‘delete merged’
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
-	# Find branches containing commit
-	fb = "!f() { git branch -a --contains $1; }; f"
+  # Find branches containing commit
+  fb = "!f() { git branch -a --contains $1; }; f"
 
-	# Find commits by source code
-	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+  # Find commits by source code
+  fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 
-	# Open merge conflicted files in editor
-	fix = "!git diff --name-only --diff-filter=U | uniq | xargs atom"
+  # Open merge conflicted files in editor
+  fix = "!git diff --name-only --diff-filter=U | uniq | xargs atom"
 
-	# Find commits by commit message
-	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+  # Find commits by commit message
+  fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
-	# Find tags containing commit
-	ft = "!f() { git describe --always --contains $1; }; f"
+  # Find tags containing commit
+  ft = "!f() { git describe --always --contains $1; }; f"
 
-	# Switch to a branch, creating it if necessary
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  # Switch to a branch, creating it if necessary
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
-	# The first commit of a repository can not be rebased like regular commits,
-	# so it’s good practice to create an empty commit as your repository root.
-	it = "!git init && git commit -m 'root' --allow-empty"
+  # The first commit of a repository can not be rebased like regular commits,
+  # so it’s good practice to create an empty commit as your repository root.
+  it = "!git init && git commit -m 'root' --allow-empty"
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-	# Please force push
-	please = push --force-with-lease
+  # Please force push
+  please = push --force-with-lease
 
-	# Verbose remotes
-	remotes = remote -v
+  # Verbose remotes
+  remotes = remote -v
 
-	res = reset --
+  res = reset --
 
-	# Remove the old tag with this name and tag the latest commit with it.
-	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+  # Remove the old tag with this name and tag the latest commit with it.
+  retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
 
-	# View the current working tree status using the short format
-	s = status -sb
+  # View the current working tree status using the short format
+  s = status -sb
 
-	# Show staged changes
-	staged = diff --staged
+  # Show staged changes
+  staged = diff --staged
 
-	# stash only unstaged changes to tracked files
-	stsh = stash --keep-index
-	# stash untracked and tracked files
-	staash = stash --include-untracked
-	# stash ignored, untracked, and tracked files
-	staaash = stash --all
+  # stash only unstaged changes to tracked files
+  stsh = stash --keep-index
+  # stash untracked and tracked files
+  staash = stash --include-untracked
+  # stash ignored, untracked, and tracked files
+  staaash = stash --all
 
-	# Verbose tags
-	tags = tag -l
+  # Verbose tags
+  tags = tag -l
 
-	# Merge with merge commit
-	unbranch = merge --no-ff
+  # Merge with merge commit
+  unbranch = merge --no-ff
 
-	# Open files that are changed in editor
-	wip = "!git status -s | grep -v '\bD\b' | cut -d ' ' -f 3 | xargs atom"
+  # Open files that are changed in editor
+  wip = "!git status -s | grep -v '\bD\b' | cut -d ' ' -f 3 | xargs atom"
 
 [apply]
 
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
 
 [core]
 
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-	# Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-	trustctime = false
+  # Make `git rebase` safer on OS X
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
 
-	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
-	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
-	precomposeunicode = false
-	editor = atom --wait
-	mergeoptions = --no-edit
+  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+  precomposeunicode = false
+  editor = atom --wait
+  mergeoptions = --no-edit
 
-	# insanely beautiful diffs
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  # insanely beautiful diffs
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
 
 [color "branch"]
 
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
 
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
 
 [color "diff-highlight"]
 
-	oldNormal = "red bold"
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
 
 [color "status"]
 
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [diff]
-	compactionHeuristic = true
-	tool = Kaleidoscope
-	# Detect copies as well as renames
-	renames = copies
+  compactionHeuristic = true
+  tool = Kaleidoscope
+  # Detect copies as well as renames
+  renames = copies
 
 [diff "bin"]
-	# Use `hexdump` to diff binary files
-	textconv = hexdump -v -C
+  # Use `hexdump` to diff binary files
+  textconv = hexdump -v -C
 
 [help]
 
-	# Automatically correct and execute mistyped commands
-	autocorrect = 5
+  # Automatically correct and execute mistyped commands
+  autocorrect = 5
 
 [merge]
 
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
-	tool = Kaleidoscope
-	commit = no
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
+  tool = Kaleidoscope
+  commit = no
 
 [push]
 
-	default = simple
-	# Make `git push` push relevant annotated tags when pushing branches out.
-	followTags = true
+  default = simple
+  # Make `git push` push relevant annotated tags when pushing branches out.
+  followTags = true
 
 # URL shorthands
 
 [url "git@github.com:"]
 
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
 
-	insteadOf = "github:"
+  insteadOf = "github:"
 
 [url "git@gist.github.com:"]
 
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
 
-	insteadOf = "gist:"
+  insteadOf = "gist:"
 
 [user]
 
-	name = Dieter Luypaert
-	email = dieterluypaert@gmail.com
+  name = Dieter Luypaert
+  email = dieterluypaert@gmail.com
 
 [credential]
 
-	helper = osxkeychain
+  helper = osxkeychain
 
 [mergetool "Kaleidoscope"]
 
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
 
 [difftool "Kaleidoscope"]
 
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [difftool]
 
-	prompt = false
+  prompt = false
 
 [mergetool]
 
-	prompt = false
+  prompt = false
 
 [fetch]
 
-	prune = true
+  prune = true
