@@ -85,8 +85,6 @@ module.exports = {
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
   localPlugins: [
-    // 'hyperterm-tab-cwd',
-    // 'hyperterm-tab-title',
   ],
 
   // a list of plugins to fetch and install from npm
@@ -96,16 +94,14 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperborder',
+    // 'hyperborder',
     'hypercwd',
     'hyperlinks',
-    // 'hyperterm-alternatescroll',
     'hyperterm-dibdabs',
+    'hyperterm-mactabs',
     'hyperterm-paste',
-    // 'hyperterm-tab-cwd',
-    // 'hyperterm-tab-icons',
-    // 'hyperterm-transparent-bg',
-    'nova-hyperterm',
+    'hyper-snazzy',
+    // 'nova-hyperterm',
   ],
 
 };
