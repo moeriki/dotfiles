@@ -25,12 +25,9 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install Bash 4.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
-brew install autoenv bash zsh
+# Install Shells
+brew install autoenv bash bash-completion2 shellcheck zsh zsh-syntax-highlighting
 brew tap homebrew/versions
-brew install bash-completion2
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -50,9 +47,6 @@ brew install imagemagick --with-webp
 
 # QuickLook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-
-# Linting for shell scripts
-brew install shellcheck
 
 # JSON formatting and selecting util
 brew install jq
