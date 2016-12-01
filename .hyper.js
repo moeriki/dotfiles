@@ -16,7 +16,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#000',
+    backgroundColor: '#3c4c55', // default: #000
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -92,12 +92,14 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    // 'hyperborder',
+    'hyperborder',
     'hypercwd',
     'hyperlinks',
-    'hyperterm-dibdabs',
+    // 'hyperpower',
+    'hyperterm-cursor',
+    // 'hyperterm-dibdabs',
     'hyperterm-mactabs',
-    'hyperterm-paste',
+    // 'hyperterm-paste',
     'hyper-snazzy',
     // 'nova-hyperterm',
   ],
