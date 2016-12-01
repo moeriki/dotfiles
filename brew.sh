@@ -40,7 +40,7 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install tree
 
-# Git bins
+# Git
 brew install git git-extras git-lfs hub diff-so-fancy
 brew install michaeldfallen/formula/git-radar
 
@@ -57,12 +57,8 @@ brew install shellcheck
 # JSON formatting and selecting util
 brew install jq
 
-# Mac App Store CLI
-brew install mas
-
 # Install trash
 brew install rmtrash
 
-brew install
 # Remove outdated versions from the cellar.
 brew cleanup
