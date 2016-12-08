@@ -54,5 +54,8 @@ brew install jq
 # Install trash
 brew install rmtrash
 
+# The Unarchiver binaries
+brew install unar
+
 # Remove outdated versions from the cellar.
 brew cleanup
