@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily: '"Operator Mono for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Operator Mono", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -16,10 +16,10 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#3c4c55', // default: #000
+    backgroundColor: '#282a36',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: 'rgba(0,0,0,0.5)',
 
     // custom css to embed in the main window
     css: '',
@@ -77,12 +77,16 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    copyOnSelect: false,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    hyperlinks: {
+      defaultBrowser: false,
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -95,17 +99,15 @@ module.exports = {
     'hyperborder',
     'hypercwd',
     'hyperlinks',
-    // 'hyperpower',
-    'hyperterm-cursor',
-    // 'hyperterm-dibdabs',
-    'hyperterm-mactabs',
+    'hyperpower',
+    'hyperterm-dibdabs',
     // 'hyperterm-paste',
     'hyper-snazzy',
-    // 'nova-hyperterm',
   ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
+  localPlugins: [
+  ],
 };
