@@ -1,10 +1,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: '"Operator Mono", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Operator Mono Book", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -25,7 +25,14 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: `
+      * {
+        cursor: default;
+      }
+      x-row span {
+        cursor: text;
+      }
+    `,
 
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
@@ -96,13 +103,14 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperborder',
+    // 'hyperborder',
     'hypercwd',
     'hyperlinks',
     'hyperpower',
     'hyperterm-dibdabs',
     // 'hyperterm-paste',
     'hyper-snazzy',
+    'hyper-statusline',
   ],
 
   // in development, you can create a directory under
