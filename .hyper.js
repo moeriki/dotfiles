@@ -94,6 +94,14 @@ module.exports = {
     hyperlinks: {
       defaultBrowser: false,
     },
+
+    hyperTabs: {
+      activityColor: 'salmon',
+      activityPulse: true,
+      border: true,
+      tabIcons: true,
+    },
+
   },
 
   // a list of plugins to fetch and install from npm
@@ -103,14 +111,16 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    // 'hyperborder',
+    'hyper-snazzy',
+    'hyper-statusline',
+    'hyper-tabs-enhanced',
     'hypercwd',
+    'hyperfull',
     'hyperlinks',
     'hyperpower',
     'hyperterm-dibdabs',
-    // 'hyperterm-paste',
-    'hyper-snazzy',
-    'hyper-statusline',
+    'hyperterm-alternatescroll',
+    // 'hyperterm-sync-settings',
   ],
 
   // in development, you can create a directory under
