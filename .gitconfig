@@ -9,6 +9,7 @@
   co = checkout
   cp = cherry-pick
   current = rev-parse --abbrev-ref HEAD
+  m = checkout master
   master = checkout master
   merged = branch -a --merged
   please = push --force-with-lease
@@ -19,6 +20,7 @@
   staash = stash --include-untracked # stash untracked and tracked files
   staaash = stash --all              # stash ignored, untracked, and tracked files
   tags = tag -l
+  u = checkout unstable
   unbranch = merge --no-ff
   unstable = checkout unstable
   unstage = reset HEAD --
