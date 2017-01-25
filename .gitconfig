@@ -33,7 +33,7 @@
   down = "!git fetch && git rebase origin/HEAD"
 
   # Jump between branches like 'z' or 'j'
-  g = "!f() { git branch -a --no-color --column | grep \"$1\" | head -1 | xargs git checkout; }; f"
+  g = "!f() { git branch -a | sed -r \"s/^(\\*| ) (remotes\\/)?//\" | grep \"$1\" | head -1 | xargs git checkout; }; f"
 
   # Switch to a branch, creating it if necessary
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"${1-master}\"; }; f"
