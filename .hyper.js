@@ -112,13 +112,10 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyper-snazzy',
-    'hyper-statusline',
     'hyper-tabs-enhanced',
     'hypercwd',
-    'hyperfull',
-    'hyperlinks',
+    // 'hyperlinks',
     'hyperpower',
-    'hyperterm-dibdabs',
     'hyperterm-alternatescroll',
     // 'hyperterm-sync-settings',
   ],
