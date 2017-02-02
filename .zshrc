@@ -9,8 +9,34 @@ DEFAULT_USER="moeriki"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-PURE_PROMPT_SYMBOL="λ"
-ZSH_THEME="pure"
+
+# PURE_PROMPT_SYMBOL="»"
+# ZSH_THEME="pure"
+
+BULLETTRAIN_GIT_AHEAD="%F{cyan}⇡%F{black}"
+BULLETTRAIN_GIT_BEHIND="%F{cyan}⇣%F{black}"
+BULLETTRAIN_GIT_DIVERGED="%F{cyan}⇵%F{black}"
+
+BULLETTRAIN_GIT_DIRTY=" "
+BULLETTRAIN_GIT_CLEAN=" "
+BULLETTRAIN_GIT_ADDED="%F{green}+ %F{black}"
+BULLETTRAIN_GIT_MODIFIED="%F{blue}● %F{black}"
+BULLETTRAIN_GIT_DELETED="%F{red}× %F{black}"
+BULLETTRAIN_GIT_UNTRACKED="%F{magenta}✽ %F{black}"
+
+BULLETTRAIN_DIR_BG="black"
+BULLETTRAIN_DIR_FG="blue"
+BULLETTRAIN_GIT_BG="black"
+BULLETTRAIN_GIT_FG="white"
+BULLETTRAIN_PROMPT_CHAR="\n » "
+BULLETTRAIN_PROMPT_ORDER=(
+  cmd_exec_time
+  status
+  dir
+  git
+)
+BULLETTRAIN_STATUS_EXIT_SHOW="true"
+ZSH_THEME="bullet-train"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
