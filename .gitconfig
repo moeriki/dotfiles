@@ -6,22 +6,25 @@
   ### SHORTCUTS
 
   branches = branch -a -v
-  co = checkout
-  cp = cherry-pick
+  c = checkout
   current = rev-parse --abbrev-ref HEAD
+  forward = merge
   m = checkout master
   master = checkout master
+  merge = merge --no-ff
   merged = branch -a --merged
+  p = add -p
+  pick = cherry-pick
   please = push --force-with-lease
   remotes = remote -v
   s = status -sb
+  stage = add -p
   staged = diff --staged
   stsh = stash --keep-index          # stash only unstaged changes to tracked files
   staash = stash --include-untracked # stash untracked and tracked files
   staaash = stash --all              # stash ignored, untracked, and tracked files
   tags = tag -l
   u = checkout unstable
-  unbranch = merge --no-ff
   unstable = checkout unstable
   unstage = reset HEAD --
   up = push -u origin HEAD
@@ -42,6 +45,9 @@
   # so it’s good practice to create an empty commit as your repository root.
   it = "!git init && git commit -m 'root' --allow-empty"
 
+  # Fix pull because we made merge --no-ff
+  pull = "!git fetch && git forward"
+
   # Remove the old tag with this name and tag the latest commit with it.
   retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
 
@@ -52,7 +58,9 @@
   remaster = "!git fetch && git rebase origin/${1-master}"
 
   # Fast recreate unstable
-  restable = "!git checkout unstable && git recreate"
+  restable = "!git u && git recreate"
+
+  retrack = "reset --hard origin/HEAD"
 
   # Fire up difftool with all the changes that are on the current branch.
   review = difftool origin/master...
@@ -129,9 +137,6 @@
 
   # Recreate unstable, merge branch ($1)
   test = "!git restable && git merge --no-ff $1"
-
-  # Squash merge to master
-  finish = "!git go master && git merge --squash $1"
 
 
 [apply]
