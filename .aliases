@@ -29,6 +29,7 @@ alias nlg="npm list --global --depth=0"
 alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add --dev"
+alias yap="yarn add --peer"
 alias yu="yarn upgrade"
 
 # Detect which `ls` flavor is in use
