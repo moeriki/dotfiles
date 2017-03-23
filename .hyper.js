@@ -91,10 +91,6 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
 
-    hyperlinks: {
-      defaultBrowser: false,
-    },
-
     hyperTabs: {
       activityColor: 'salmon',
       activityPulse: true,
