@@ -25,6 +25,7 @@
   staaash = stash --all              # stash ignored, untracked, and tracked files
   tags = tag -l
   u = checkout unstable
+  unmerged = branch -a --no-merge
   unstable = checkout unstable
   unstage = reset HEAD --
   up = push -u origin HEAD
