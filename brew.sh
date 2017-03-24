@@ -35,9 +35,10 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install tree
 
-# Git
+# Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
 brew install michaeldfallen/formula/git-radar
+brew install nodejs yarn mongodb redis
 
 # Multimedia
 brew install ffmpeg
