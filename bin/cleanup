@@ -1,16 +1,5 @@
 #!/usr/bin/env sh
 
-# Clean up homebrew
-brew cleanup
-brew cask cleanup
-
-# Purge useless files
-find "$HOME" -type f -name '*.DS_Store' -ls -delete
-find "$HOME" -name 'npm-debug.log' -ls -delete
-find "$HOME/Projects" -name 'node_modules' -type d -exec rm -r '{}' ';' || true
-
-# Empty trash
-rm -rf "$HOME"/.Trash
-
-# Clear download logs
-sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
+find . -type f -name '*.DS_Store' -ls -delete
+find . -name '*-debug.log' -ls -delete
+# find . -name 'node_modules' -type d -exec rm -r '{}' ';' || true

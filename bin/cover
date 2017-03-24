@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Empty trash
+rm -rf "$HOME"/.Trash
+
+# Clear download logs
+sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
