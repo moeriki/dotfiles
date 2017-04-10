@@ -108,6 +108,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyper-snazzy',
+    'hyperterm-tabs',
     'hyper-tabs-enhanced',
     'hypercwd',
     'hyperterm-alternatescroll',
