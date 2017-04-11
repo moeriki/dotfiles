@@ -38,7 +38,7 @@ brew install tree
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
 brew install michaeldfallen/formula/git-radar
-brew install nodejs yarn mongodb redis httpie
+brew install nodejs yarn mongodb redis httpie phantomjs
 
 # Multimedia
 brew install ffmpeg
