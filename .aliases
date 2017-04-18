@@ -30,6 +30,9 @@ alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add --dev"
 alias yap="yarn add --peer"
+alias yit="yarn install && yarn test"
+alias yr="yarn run"
+alias yt="yarn test"
 alias yu="yarn upgrade"
 
 # Detect which `ls` flavor is in use
