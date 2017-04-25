@@ -80,7 +80,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv aws brew colorize git github gitignore npm nvm z zsh-better-npm-completion)
+plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion)
 
 # User configuration
 
@@ -116,3 +116,6 @@ source $HOME/.zsh_profile
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
