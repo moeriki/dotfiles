@@ -163,6 +163,3 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-# Start and stop mongod
-alias startmongod="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-alias stopmongod="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
