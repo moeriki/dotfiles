@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/macos,redis
+# Created by https://www.gitignore.io/api/redis,macos
 
 ### macOS ###
 *.DS_Store
@@ -7,7 +7,6 @@
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -33,4 +32,4 @@ Temporary Items
 
 *.rdb
 
-# End of https://www.gitignore.io/api/macos,redis
+# End of https://www.gitignore.io/api/redis,macos
