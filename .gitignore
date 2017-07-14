@@ -1,4 +1,12 @@
-# Created by https://www.gitignore.io/api/redis,macos
+
+# Created by https://www.gitignore.io/api/code,macos,redis
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
 
 ### macOS ###
 *.DS_Store
@@ -32,4 +40,4 @@ Temporary Items
 
 *.rdb
 
-# End of https://www.gitignore.io/api/redis,macos
+# End of https://www.gitignore.io/api/code,macos,redis
