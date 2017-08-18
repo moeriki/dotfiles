@@ -50,9 +50,6 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 # JSON formatting and selecting util
 brew install jq
 
-# Install trash
-brew install rmtrash
-
 # The Unarchiver binaries
 brew install unar
 
