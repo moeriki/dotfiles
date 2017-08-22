@@ -94,8 +94,8 @@ module.exports = {
     hyperTabs: {
       activityColor: 'salmon',
       activityPulse: true,
-      border: true,
       tabIcons: true,
+      trafficButtons: true,
     },
 
   },
@@ -111,7 +111,7 @@ module.exports = {
     'hyperterm-tabs',
     'hyper-tabs-enhanced',
     'hypercwd',
-    'hyperterm-alternatescroll',
+    // 'hyperterm-alternatescroll',
   ],
 
   // in development, you can create a directory under
