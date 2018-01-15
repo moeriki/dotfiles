@@ -105,6 +105,9 @@ fi
 if [ ! -n "${BULLETTRAIN_NVM_PREFIX+1}" ]; then
   BULLETTRAIN_NVM_PREFIX="⬡ "
 fi
+if [ ! -n "${BULLETTRAIN_NVM_PKG_PREFIX+1}" ]; then
+  BULLETTRAIN_NVM_PKG_PREFIX="📦 "
+fi
 
 # AWS
 if [ ! -n "${BULLETTRAIN_AWS_BG+1}" ]; then
@@ -554,6 +557,7 @@ prompt_virtualenv() {
 # NVM: Node version manager
 prompt_nvm() {
   local nvm_prompt
+  local pkg_prompt
   if type nvm >/dev/null 2>&1; then
     nvm_prompt=$(nvm current 2>/dev/null)
     [[ "${nvm_prompt}x" == "x" ]] && return
@@ -562,8 +566,11 @@ prompt_nvm() {
   else
     return
   fi
+  if [ -f package.json ]; then
+    pkg_prompt=" $BULLETTRAIN_NVM_PKG_PREFIX v$(cat package.json | jq .version | tr -d '"')"
+  fi
   nvm_prompt=${nvm_prompt}
-  prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$nvm_prompt
+  prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$nvm_prompt$pkg_prompt
 }
 
 #AWS Profile
