@@ -23,11 +23,14 @@ if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
     custom
     context
     dir
+    screen
     perl
     ruby
     virtualenv
     nvm
+    aws
     go
+    elixir
     git
     hg
     cmd_exec_time
@@ -103,9 +106,20 @@ if [ ! -n "${BULLETTRAIN_NVM_PREFIX+1}" ]; then
   BULLETTRAIN_NVM_PREFIX="⬡ "
 fi
 
+# AWS
+if [ ! -n "${BULLETTRAIN_AWS_BG+1}" ]; then
+  BULLETTRAIN_AWS_BG=yellow
+fi
+if [ ! -n "${BULLETTRAIN_AWS_FG+1}" ]; then
+  BULLETTRAIN_AWS_FG=black
+fi
+if [ ! -n "${BULLETTRAIN_AWS_PREFIX+1}" ]; then
+  BULLETTRAIN_AWS_PREFIX="☁️"
+fi
+
 # RUBY
 if [ ! -n "${BULLETTRAIN_RUBY_BG+1}" ]; then
-  BULLETTRAIN_RUBY_BG=magenta
+  BULLETTRAIN_RUBY_BG=red
 fi
 if [ ! -n "${BULLETTRAIN_RUBY_FG+1}" ]; then
   BULLETTRAIN_RUBY_FG=white
@@ -122,7 +136,29 @@ if [ ! -n "${BULLETTRAIN_GO_FG+1}" ]; then
   BULLETTRAIN_GO_FG=white
 fi
 if [ ! -n "${BULLETTRAIN_GO_PREFIX+1}" ]; then
-  BULLETTRAIN_GO_PREFIX="go "
+  BULLETTRAIN_GO_PREFIX="go"
+fi
+
+# Kubernetes Context
+if [ ! -n "${BULLETTRAIN_KCTX_BG+1}" ]; then
+  BULLETTRAIN_KCTX_BG=yellow
+fi
+if [ ! -n "${BULLETTRAIN_KCTX_FG+1}" ]; then
+  BULLETTRAIN_KCTX_FG=white
+fi
+if [ ! -n "${BULLETTRAIN_KCTX_PREFIX+1}" ]; then
+  BULLETTRAIN_KCTX_PREFIX="⎈"
+fi
+
+# ELIXIR
+if [ ! -n "${BULLETTRAIN_ELIXIR_BG+1}" ]; then
+  BULLETTRAIN_ELIXIR_BG=magenta
+fi
+if [ ! -n "${BULLETTRAIN_ELIXIR_FG+1}" ]; then
+  BULLETTRAIN_ELIXIR_FG=white
+fi
+if [ ! -n "${BULLETTRAIN_ELIXIR_PREFIX+1}" ]; then
+  BULLETTRAIN_ELIXIR_PREFIX="💧"
 fi
 
 # DIR
@@ -251,6 +287,17 @@ else
   ZSH_THEME_GIT_PROMPT_DIVERGED=$BULLETTRAIN_GIT_PROMPT_DIVERGED
 fi
 
+# SCREEN
+if [ ! -n "${BULLETTRAIN_SCREEN_BG+1}" ]; then
+  BULLETTRAIN_SCREEN_BG=white
+fi
+if [ ! -n "${BULLETTRAIN_SCREEN_FG+1}" ]; then
+  BULLETTRAIN_SCREEN_FG=black
+fi
+if [ ! -n "${BULLETTRAIN_SCREEN_PREFIX+1}" ]; then
+  BULLETTRAIN_SCREEN_PREFIX="⬗"
+fi
+
 # COMMAND EXECUTION TIME
 if [ ! -n "${BULLETTRAIN_EXEC_TIME_ELAPSED+1}" ]; then
   BULLETTRAIN_EXEC_TIME_ELAPSED=5
@@ -357,6 +404,10 @@ prompt_custom() {
 
 # Git
 prompt_git() {
+  if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" == "1" ]]; then
+    return
+  fi
+
   local ref dirty mode repo_path git_prompt
   repo_path=$(git rev-parse --git-dir 2>/dev/null)
 
@@ -453,6 +504,13 @@ prompt_ruby() {
   fi
 }
 
+# ELIXIR
+prompt_elixir() {
+  if command -v elixir > /dev/null 2>&1; then
+    prompt_segment $BULLETTRAIN_ELIXIR_BG $BULLETTRAIN_ELIXIR_FG $BULLETTRAIN_ELIXIR_PREFIX" $(elixir -v | tail -n 1 | awk '{print $2}')"
+  fi
+}
+
 # PERL
 # PLENV: shows current PERL version active in the shell
 prompt_perl() {
@@ -467,6 +525,18 @@ prompt_go() {
   if [[ (-f *.go(#qN) || -d Godeps || -f glide.yaml) ]]; then
     if command -v go > /dev/null 2>&1; then
       prompt_segment $BULLETTRAIN_GO_BG $BULLETTRAIN_GO_FG $BULLETTRAIN_GO_PREFIX" $(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')"
+    fi
+  fi
+}
+
+# Kubernetes Context
+prompt_kctx() {
+  if [[ ! -n $BULLETTRAIN_KCTX_KCONFIG ]]; then
+    return
+  fi
+  if command -v kubectl > /dev/null 2>&1; then
+    if [[ -f $BULLETTRAIN_KCTX_KCONFIG ]]; then
+      prompt_segment $BULLETTRAIN_KCTX_BG $BULLETTRAIN_KCTX_FG $BULLETTRAIN_KCTX_PREFIX" $(cat $BULLETTRAIN_KCTX_KCONFIG|grep current-context| awk '{print $2}')"
     fi
   fi
 }
@@ -487,11 +557,30 @@ prompt_nvm() {
   if type nvm >/dev/null 2>&1; then
     nvm_prompt=$(nvm current 2>/dev/null)
     [[ "${nvm_prompt}x" == "x" ]] && return
-  else
+  elif type node >/dev/null 2>&1; then
     nvm_prompt="$(node --version)"
+  else
+    return
   fi
   nvm_prompt=${nvm_prompt}
   prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$nvm_prompt
+}
+
+#AWS Profile
+prompt_aws() {
+  local spaces="  "
+
+  if [[ -n "$AWS_PROFILE" ]]; then
+    prompt_segment $BULLETTRAIN_AWS_BG $BULLETTRAIN_AWS_FG $BULLETTRAIN_AWS_PREFIX$spaces$AWS_PROFILE
+  fi
+}
+
+# SCREEN Session
+prompt_screen() {
+  local session_name="$STY"
+  if [[ "$session_name" != "" ]]; then
+    prompt_segment $BULLETTRAIN_SCREEN_BG $BULLETTRAIN_SCREEN_FG $BULLETTRAIN_SCREEN_PREFIX" $session_name"
+  fi
 }
 
 prompt_time() {
@@ -534,7 +623,11 @@ prompt_chars() {
     bt_prompt_chars="${bt_prompt_chars}"
   fi
 
-  echo -n $bt_prompt_chars
+  echo -n "$bt_prompt_chars"
+
+  if [[ -n $BULLETTRAIN_PROMPT_CHAR ]]; then
+    echo -n " "
+  fi
 }
 
 # Prompt Line Separator
