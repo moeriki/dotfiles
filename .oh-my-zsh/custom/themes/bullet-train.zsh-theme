@@ -30,6 +30,7 @@ if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
     nvm
     aws
     go
+    rust
     elixir
     git
     hg
@@ -105,9 +106,6 @@ fi
 if [ ! -n "${BULLETTRAIN_NVM_PREFIX+1}" ]; then
   BULLETTRAIN_NVM_PREFIX="⬡ "
 fi
-if [ ! -n "${BULLETTRAIN_NVM_PKG_PREFIX+1}" ]; then
-  BULLETTRAIN_NVM_PKG_PREFIX="📦 "
-fi
 
 # AWS
 if [ ! -n "${BULLETTRAIN_AWS_BG+1}" ]; then
@@ -140,6 +138,17 @@ if [ ! -n "${BULLETTRAIN_GO_FG+1}" ]; then
 fi
 if [ ! -n "${BULLETTRAIN_GO_PREFIX+1}" ]; then
   BULLETTRAIN_GO_PREFIX="go"
+fi
+
+# Rust
+if [ ! -n "${BULLETTRAIN_RUST_BG+1}" ]; then
+  BULLETTRAIN_RUST_BG=black
+fi
+if [ ! -n "${BULLETTRAIN_RUST_FG+1}" ]; then
+  BULLETTRAIN_RUST_FG=white
+fi
+if [ ! -n "${BULLETTRAIN_RUST_PREFIX+1}" ]; then
+  BULLETTRAIN_RUST_PREFIX="🦀"
 fi
 
 # Kubernetes Context
@@ -532,6 +541,15 @@ prompt_go() {
   fi
 }
 
+# Rust
+prompt_rust() {
+  if [[ (-f Cargo.toml) ]]; then
+    if command -v rustc > /dev/null 2>&1; then
+      prompt_segment $BULLETTRAIN_RUST_BG $BULLETTRAIN_RUST_FG $BULLETTRAIN_RUST_PREFIX" $(rustc -V version | cut -d' ' -f2)"
+    fi
+  fi
+}
+
 # Kubernetes Context
 prompt_kctx() {
   if [[ ! -n $BULLETTRAIN_KCTX_KCONFIG ]]; then
@@ -540,7 +558,7 @@ prompt_kctx() {
   if command -v kubectl > /dev/null 2>&1; then
     if [[ -f $BULLETTRAIN_KCTX_KCONFIG ]]; then
       prompt_segment $BULLETTRAIN_KCTX_BG $BULLETTRAIN_KCTX_FG $BULLETTRAIN_KCTX_PREFIX" $(cat $BULLETTRAIN_KCTX_KCONFIG|grep current-context| awk '{print $2}')"
-    fi
+    fi  
   fi
 }
 
@@ -557,7 +575,6 @@ prompt_virtualenv() {
 # NVM: Node version manager
 prompt_nvm() {
   local nvm_prompt
-  local pkg_prompt
   if type nvm >/dev/null 2>&1; then
     nvm_prompt=$(nvm current 2>/dev/null)
     [[ "${nvm_prompt}x" == "x" ]] && return
@@ -566,11 +583,8 @@ prompt_nvm() {
   else
     return
   fi
-  if [ -f package.json ]; then
-    pkg_prompt=" $BULLETTRAIN_NVM_PKG_PREFIX v$(cat package.json | jq .version | tr -d '"')"
-  fi
   nvm_prompt=${nvm_prompt}
-  prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$nvm_prompt$pkg_prompt
+  prompt_segment $BULLETTRAIN_NVM_BG $BULLETTRAIN_NVM_FG $BULLETTRAIN_NVM_PREFIX$nvm_prompt
 }
 
 #AWS Profile
