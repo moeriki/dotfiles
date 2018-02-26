@@ -9,8 +9,6 @@
   c = checkout
   current = rev-parse --abbrev-ref HEAD
   forward = merge
-  m = checkout master
-  master = checkout master
   merge = merge --no-ff
   merged = branch -a --merged
   p = add -p
@@ -24,9 +22,7 @@
   staash = stash --include-untracked # stash untracked and tracked files
   staaash = stash --all              # stash ignored, untracked, and tracked files
   tags = tag -l
-  u = checkout unstable
   unmerged = branch -a --no-merge
-  unstable = checkout unstable
   unstage = reset HEAD --
   up = push -u origin HEAD
   uplease = up --force-with-lease
@@ -38,6 +34,12 @@
 
   # Jump between branches like 'z' or 'j'
   g = "!f() { git branch -a | sed -r \"s/^(\\*| ) (remotes\\/)?//\" | grep \"$1\" | head -1 | xargs git checkout; }; f"
+
+  # Jump to a master branch
+  m = "!f() { git branch | grep \"${1-master}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+
+  # Jump to an unstable branch
+  u = "!f() { git branch | grep \"${1-unstable}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
   # Switch to a branch, creating it if necessary
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"${1-master}\"; }; f"
@@ -165,7 +167,7 @@
   # Prevent showing files whose names contain non-ASCII symbols as unversioned.
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
-  editor = atom -a --wait
+  editor = code-insiders -n -w
   mergeoptions = --no-edit
 
   # insanely beautiful diffs
