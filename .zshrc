@@ -10,6 +10,9 @@ DEFAULT_USER="moeriki"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
+BULLETTRAIN_GIT_MODIFIED="%F{blue} ‼︎%F{black}"
+BULLETTRAIN_GIT_UNTRACKED="%F{yellow} ⁇%F{black}"
+
 # BULLETTRAIN_CUSTOM_MSG="date +'%r'"
 BULLETTRAIN_PROMPT_CHAR="\n »"
 BULLETTRAIN_PROMPT_ORDER=(
