@@ -37,7 +37,8 @@ brew install tree
 
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
-brew install nodejs httpie jq
+brew install httpie jq nodejs nvm
+brew install yarn --without-node
 
 # Multimedia
 brew install ffmpeg
