@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-find . -type f -name '*.DS_Store' -ls -delete
-find . -name '*-debug.log' -ls -delete
-# find . -name 'node_modules' -type d -exec rm -r '{}' ';' || true
