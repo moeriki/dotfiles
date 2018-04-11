@@ -24,7 +24,7 @@ brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 # Install Shells
-brew install autoenv bash bash-completion2 shellcheck zsh zsh-syntax-highlighting
+brew install autoenv bash shellcheck zsh zsh-syntax-highlighting
 brew tap homebrew/versions
 
 # Install `wget` with IRI support.
@@ -37,18 +37,14 @@ brew install tree
 
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
-brew install michaeldfallen/formula/git-radar
-brew install nodejs yarn mongodb redis httpie phantomjs
+brew install nodejs httpie jq
 
 # Multimedia
 brew install ffmpeg
 brew install imagemagick --with-webp
 
 # QuickLook
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-
-# JSON formatting and selecting util
-brew install jq
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook suspicious-package
 
 # The Unarchiver binaries
 brew install unar
