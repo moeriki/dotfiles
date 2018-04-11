@@ -84,9 +84,6 @@ plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-com
 
 # User configuration
 
-export PATH="~/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
 
