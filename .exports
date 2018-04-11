@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export EDITOR='atom';
+export EDITOR='code';
 
 export GIT_AUTHOR_NAME="Dieter Luypaert"
 export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
