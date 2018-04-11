@@ -95,4 +95,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh ]] && . /usr/local/lib/node_modules/yarn-completions/node_modules/tabtab/.completions/yarn.zsh
+[[ -f /Users/moeriki/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/moeriki/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
