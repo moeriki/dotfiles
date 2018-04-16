@@ -38,6 +38,9 @@
   # Jump to a master branch
   m = "!f() { git branch | grep \"${1-master}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
+  # Jump to a test branch
+  t = "!f() { git branch | grep \"${1-test}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+
   # Jump to an unstable branch
   u = "!f() { git branch | grep \"${1-unstable}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
