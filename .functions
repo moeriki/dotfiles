@@ -77,6 +77,11 @@ function jg() {
   cat | gron | grep "${1}" | ungron | jq
 }
 
+# Convert an m3u8 playlist to mp4 video file
+function m3u8tomp4() {
+  ffmpeg -i "${1}" -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 "${2}.mp4"
+}
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$_";
