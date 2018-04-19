@@ -8,7 +8,7 @@
   branches = branch -a -v
   c = checkout
   current = rev-parse --abbrev-ref HEAD
-  forward = merge
+  forward = merge --ff
   merge = merge --no-ff
   merged = branch -a --merged
   p = add -p
