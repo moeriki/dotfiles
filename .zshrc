@@ -29,7 +29,6 @@ BULLETTRAIN_PROMPT_CHAR="\n »"
 BULLETTRAIN_PROMPT_ORDER=(
   cmd_exec_time
   status
-  time
   aws
   nvm
   dir
