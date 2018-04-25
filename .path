@@ -4,11 +4,11 @@ BASE_PATH=$(cat /etc/paths | tr '\n' ':')
 
 export PATH=$BASE_PATH
 
-# coreutils bins
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
-
 # homebrew sbin
 export PATH="$PATH:/usr/local/sbin";
 
+# coreutils bins
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
+
 # userdir bin
-export PATH="$PATH:$HOME/bin:$PATH";
+export PATH="$HOME/bin:$PATH";
