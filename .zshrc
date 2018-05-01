@@ -79,7 +79,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion yarn-autocompletions)
+plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion)
 
 # User configuration
 
@@ -91,7 +91,3 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 [ -s "/usr/local/etc/bash_completion.d" ] && \. "/usr/local/etc/bash_completion.d"
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /Users/moeriki/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/moeriki/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
