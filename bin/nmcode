@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo -n $ML_VPN_CODE; oathtool --base32 --totp $ML_VPN_OAUTH;
