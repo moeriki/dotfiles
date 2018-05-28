@@ -25,11 +25,13 @@
   up = push -u origin HEAD
   uplease = up --force-with-lease
 
-
   ### BRANCHING
 
   # Rebase onto remote of current branch
   down = "!git fetch && git rebase origin/HEAD"
+
+  # Jump between branches like 'z' or 'j'
+  g = "!f() { git branch -a --no-color --column | grep \"$1\" | head -1 | xargs git checkout; }; f"
 
   # Switch to a branch, creating it if necessary
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"${1-master}\"; }; f"
@@ -42,13 +44,13 @@
   retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
 
   # Recreate a local branch from master
-  recreate = "!f() { [[ -n $@ ]] && git checkout master && git branch -D \"$@\" 2> /dev/null; git checkout -b \"$@\"; }; f"
+  recreate = "reset --hard master"
 
   # Rebase onto remote master (or other remote)
   remaster = "!git fetch && git rebase origin/${1-master}"
 
   # Fast recreate unstable
-  restable = recreate unstable
+  restable = "!git checkout unstable && git recreate"
 
   # Fire up difftool with all the changes that are on the current branch.
   review = difftool origin/master...
@@ -115,7 +117,7 @@
   fuckit = "!git sweep && git clean -dfx && git stash clear"
 
   # Remove branches that have already been merged with master
-  sweep = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d && git remote prune origin && git gc"
+  sweep = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d && git remote prune origin && git gc"
 
 
   ### JIRA
