@@ -37,7 +37,7 @@ brew install tree
 
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
-brew install httpie jq nodejs nvm trash
+brew install httpie jq nodejs nvm trash python
 brew install yarn --without-node
 
 # Multimedia
