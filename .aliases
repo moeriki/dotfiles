@@ -37,6 +37,12 @@ alias yr="yarn run"
 alias yt="yarn test"
 alias yu="yarn upgrade"
 
+# Alias tool alternatives
+alias cat="bat"
+alias ping="prettyping --nolegend"
+alias top="htop"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
 # Detect which `ls` flavor is in use
 if command ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"

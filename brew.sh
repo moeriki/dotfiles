@@ -35,6 +35,9 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install tree
 
+# Install tool alternatives
+brew install bat fd htop ncdu prettyping tldr
+
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
 brew install httpie jq nodejs nvm trash python
