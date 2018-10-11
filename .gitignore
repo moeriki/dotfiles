@@ -181,3 +181,5 @@ Temporary Items
 *.rdb
 
 # End of https://www.gitignore.io/api/code,eclipse,intellij,macos,redis
+
+!tsconfig.json
