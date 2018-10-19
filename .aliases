@@ -5,6 +5,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Shortcuts
+alias ngg="ng generate"
+
+# npm shortcuts
 alias g="hub"
 alias js="node"
 alias ni="npm install"
@@ -19,6 +22,7 @@ alias nf="npm cache clean && rm -rf node_modules && ni"
 alias nl="npm list --depth=0"
 alias nlg="npm list --global --depth=0"
 
+# Yarn shortcuts
 alias y="yarn --pure-lockfile"
 alias ya="yarn add"
 alias yad="yarn add --dev"
