@@ -23,7 +23,7 @@ alias nl="npm list --depth=0"
 alias nlg="npm list --global --depth=0"
 
 # Yarn shortcuts
-alias y="yarn --pure-lockfile"
+alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add --dev"
 alias yap="yarn add --peer"
