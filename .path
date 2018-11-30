@@ -12,3 +12,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 
 # userdir bin
 export PATH="$HOME/bin:$PATH";
+
+# Go
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
