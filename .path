@@ -4,15 +4,15 @@ BASE_PATH=$(cat /etc/paths | tr '\n' ':')
 
 export PATH=$BASE_PATH
 
+# coreutils bins
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
+
+# Go
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
+
 # homebrew sbin
 export PATH="$PATH:/usr/local/sbin";
 
-# coreutils bins
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
-
 # userdir bin
 export PATH="$HOME/bin:$PATH";
-
-# Go
-export PATH=$PATH:$(go env GOPATH)/bin
-export GOPATH=$(go env GOPATH)
