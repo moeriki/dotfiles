@@ -62,8 +62,4 @@ source $HOME/.zsh_profile
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/etc/bash_completion.d" ] && \. "/usr/local/etc/bash_completion.d"
-
 critical-thinking random --pretty
