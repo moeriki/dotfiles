@@ -5,7 +5,7 @@
 
   ### SHORTCUTS
 
-  branches = branch -a -v
+  branches = "!git branch -a -v | grep --colour -v 'deploy-'"
   c = checkout
   current = rev-parse --abbrev-ref HEAD
   forward = merge --ff
@@ -173,7 +173,7 @@
   # Prevent showing files whose names contain non-ASCII symbols as unversioned.
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
-  editor = code -n -w
+  editor = vi
   mergeoptions = --no-edit
 
   # insanely beautiful diffs
@@ -229,9 +229,15 @@
 [merge]
 
   # Include summaries of merged commits in newly created merge commit messages
+  commit = no
+  edit = no
+  ff = no
   log = true
   tool = Kaleidoscope
-  commit = no
+
+[pull]
+
+  ff = yes
 
 [push]
 
