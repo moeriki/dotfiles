@@ -132,7 +132,7 @@
 
   ### CLEAN UP
 
-  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
   # Fuck it
   fuckit = "!git sweep && git clean -dfx && git stash clear"
