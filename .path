@@ -7,6 +7,9 @@ export PATH=$BASE_PATH
 # coreutils bins
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
 
+# Deno
+export PATH="$HOME/.deno/bin:$PATH";
+
 # Go
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
