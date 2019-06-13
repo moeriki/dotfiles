@@ -96,7 +96,7 @@
   ### MERGING
 
   # Open merge conflicted files in editor
-  fix = "!git diff --name-only --diff-filter=U | uniq | xargs $1"
+  fix = "!git diff --name-only --diff-filter=U | uniq | xargs code $1"
 
   # Checkout our version of a file and add it
   ours = "!f() { git checkout --ours $@ && git add $@; }; f"
