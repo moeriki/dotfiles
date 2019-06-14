@@ -53,11 +53,16 @@ ZSH_THEME="refined"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion)
+plugins=(
+  autoenv
+  colorize
+  z
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+# plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion)
 
 # User configuration
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
