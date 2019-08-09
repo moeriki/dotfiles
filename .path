@@ -17,7 +17,5 @@ export PATH=$PATH:$GOPATH/bin
 # homebrew sbin
 export PATH="$PATH:/usr/local/sbin";
 
-export PATH=$HOME/.fnm:$PATH
-
 # userdir bin
 export PATH="$HOME/bin:$PATH";
