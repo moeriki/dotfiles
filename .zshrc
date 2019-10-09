@@ -73,7 +73,3 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
