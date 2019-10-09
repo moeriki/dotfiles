@@ -25,7 +25,7 @@ function o() {
   fi;
 }
 
-# Put this in your .zshrc or .bashrc file
+# Put this in your .zshrc file
 # Install `tree` first — brew install tree
 function t() {
   # Defaults to 3 levels deep, do more with `t 5` or `t 1`
