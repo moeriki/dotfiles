@@ -57,13 +57,17 @@ ZSH_THEME="spaceship"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  autoenv
+  # autoenv
+  aws
+  brew
   colorize
+  git
+  github
+  npm
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-# plugins=(autoenv aws brew colorize git github gitignore npm z zsh-better-npm-completion)
 
 # User configuration
 
