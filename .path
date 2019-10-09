@@ -5,17 +5,14 @@ BASE_PATH=$(cat /etc/paths | tr '\n' ':')
 export PATH=$BASE_PATH
 
 # coreutils bins
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
-
-# Deno
-export PATH="$HOME/.deno/bin:$PATH";
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # Go
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
 
 # homebrew sbin
-export PATH="$PATH:/usr/local/sbin";
+export PATH="$PATH:/usr/local/sbin"
 
 # userdir bin
-export PATH="$HOME/bin:$PATH";
+export PATH="$HOME/bin:$PATH"
