@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-nmcode | sudo openconnect --user=$ML_EMAIL $ML_URL_VPN
