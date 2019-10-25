@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
-
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/moeriki/.oh-my-zsh
 
@@ -12,7 +9,7 @@ DEFAULT_USER="moeriki"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -73,3 +70,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_profile
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
