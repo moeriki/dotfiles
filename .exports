@@ -21,6 +21,8 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 export MANPATH="/usr/local/man:$MANPATH"
 
+export NODE_PATH=$HOME/.config/yarn/global/node_modules
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.

@@ -40,7 +40,7 @@ brew install bat fd htop ncdu prettyping tldr
 
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
-brew install httpie jq nodejs trash python fnm
+brew install httpie fx nodejs trash python fnm
 brew install yarn --without-node
 
 # Multimedia
