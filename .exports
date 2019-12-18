@@ -28,6 +28,8 @@ export NODE_REPL_HISTORY_SIZE='32768';
 # Use sloppy mode by default, matching web browsers.
 export NODE_REPL_MODE='sloppy';
 
+export VOLTA_HOME="$HOME/.volta"
+
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
@@ -36,3 +38,5 @@ export JAVA_VERSION=1.8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
 export MAVEN_OPTS=-Xmx2048m
 export M2_HOME=/usr/local/Cellar/maven/3.5.3/libexec
+
+export HUSKY_SKIP_INSTALL=1

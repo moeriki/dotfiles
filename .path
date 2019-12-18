@@ -5,14 +5,17 @@ BASE_PATH=$(cat /etc/paths | tr '\n' ':')
 export PATH=$BASE_PATH
 
 # coreutils bins
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
 
 # Go
 export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$GOPATH/bin";
+
+# Volta
+export PATH="$VOLTA_HOME/bin:$PATH";
 
 # homebrew sbin
-export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/sbin";
 
 # userdir bin
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH";
