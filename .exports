@@ -40,5 +40,3 @@ export JAVA_VERSION=1.8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
 export MAVEN_OPTS=-Xmx2048m
 export M2_HOME=/usr/local/Cellar/maven/3.5.3/libexec
-
-export HUSKY_SKIP_INSTALL=1
