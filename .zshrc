@@ -73,3 +73,6 @@ source $HOME/.zsh_profile
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NODEJS_ORG_MIRROR='https://npm.taobao.org/mirrors/node/'
+. $(brew --prefix asdf)/asdf.sh

@@ -14,9 +14,6 @@ export PATH="$PATH:$GOPATH/bin";
 # Ruby Gems
 export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
 
-# Volta
-export PATH="$VOLTA_HOME/bin:$PATH";
-
 # homebrew sbin
 export PATH="$PATH:/usr/local/sbin";
 

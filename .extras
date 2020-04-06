@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-eval "$(fnm env --multi)"
-
-[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
