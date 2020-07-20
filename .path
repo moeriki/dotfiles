@@ -7,6 +7,9 @@ export PATH=$BASE_PATH
 # coreutils bins
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
 
+# Flutter
+export PATH="$PATH:$HOME/flutter/bin"
+
 # Go
 export GOPATH=$(go env GOPATH)
 export PATH="$PATH:$GOPATH/bin";
