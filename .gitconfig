@@ -54,9 +54,6 @@
   # so it’s good practice to create an empty commit as your repository root.
   it = "!git init && git commit -m 'root' --allow-empty"
 
-  # Fix pull because we made merge --no-ff
-  pull = "!git fetch && git forward"
-
   # Remove the old tag with this name and tag the latest commit with it.
   retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
 
@@ -238,6 +235,7 @@
 [pull]
 
   ff = yes
+  rebase = yes
 
 [push]
 
