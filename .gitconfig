@@ -5,7 +5,7 @@
 
   ### SHORTCUTS
 
-  branches = "!git branch -a -v | grep --colour -v 'deploy-'"
+  branches = branch -a
   c = checkout
   current = rev-parse --abbrev-ref HEAD
   forward = merge --ff
@@ -33,7 +33,7 @@
   down = "!git fetch && git rebase origin/HEAD"
 
   # Jump between branches like 'z' or 'j'
-  g = "!f() { git branch -a | sed -r \"s/^(\\*| ) (remotes\\/)?//\" | grep \"$1\" | head -1 | xargs git checkout; }; f"
+  g = "!f() { git branch | grep -i \"$1\" | head -1 | xargs git checkout; }; f"
 
   # Jump to a master branch
   m = "!f() { git branch | grep \"${1-master}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
