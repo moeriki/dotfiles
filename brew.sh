@@ -31,8 +31,7 @@ brew install git git-extras git-lfs hub diff-so-fancy
 brew install asdf httpie python trash
 
 # Multimedia
-brew install ffmpeg
-brew install imagemagick --with-webp
+brew install imagemagick ffmpeg
 
 # QuickLook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook suspicious-package
