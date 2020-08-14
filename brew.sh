@@ -14,21 +14,9 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Install GNU core utilities (those that come with OS X are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
 # Install Shells
 brew install autoenv shellcheck zsh zsh-autosuggestions zsh-syntax-highlighting
 brew tap homebrew/versions
-
-# Install `wget` with IRI support.
-brew install wget --with-iri
 
 # Install more recent versions of some OS X tools.
 brew install vim --override-system-vi
@@ -36,7 +24,7 @@ brew install homebrew/dupes/grep
 brew install tree
 
 # Install tool alternatives
-brew install bat fd htop ncdu prettyping tldr
+brew install bat fd prettyping
 
 # Developer utilies
 brew install git git-extras git-lfs hub diff-so-fancy
