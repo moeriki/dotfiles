@@ -24,7 +24,7 @@ brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 # Install Shells
-brew install autoenv shellcheck zsh
+brew install autoenv shellcheck zsh zsh-autosuggestions zsh-syntax-highlighting
 brew tap homebrew/versions
 
 # Install `wget` with IRI support.
