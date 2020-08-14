@@ -10,10 +10,6 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
 # Flutter
 export PATH="$PATH:$HOME/flutter/bin"
 
-# Go
-export GOPATH=$(go env GOPATH)
-export PATH="$PATH:$GOPATH/bin";
-
 # Ruby Gems
 export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
 
