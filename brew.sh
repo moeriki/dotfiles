@@ -27,7 +27,7 @@ brew install tree
 brew install bat fd prettyping
 
 # Developer utilies
-brew install git git-extras git-lfs hub diff-so-fancy
+brew install git git-extras git-lfs hub git-delta
 brew install asdf httpie python trash
 
 # Multimedia

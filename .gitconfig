@@ -159,7 +159,7 @@
   mergeoptions = --no-edit
 
   # insanely beautiful diffs
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
 
 
 [color]
@@ -194,6 +194,21 @@
   added = yellow
   changed = green
   untracked = cyan
+
+
+[delta]
+    features = decorations line-numbers side-by-side
+    syntax-theme = Dracula
+    whitespace-error-style = 22 reverse
+    zero-style = dim syntax
+
+
+[delta "decorations"]
+    commit-style = yellow
+    commit-decoration-style = yellow dim box ul
+    file-style = yellow
+    file-decoration-style = yellow dim box ul
+    hunk-header-decoration-style = cyan dim box ul
 
 
 [diff]
