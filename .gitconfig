@@ -62,9 +62,6 @@
   # Rebase onto remote master (or other remote)
   remaster = "!git fetch && git rebase origin/${1-master}"
 
-  # Fast recreate unstable
-  restable = "!git u && git recreate"
-
   retrack = "reset --hard origin/HEAD"
 
   # Fire up difftool with all the changes that are on the current branch.
@@ -135,15 +132,6 @@
 
   # Remove branches that have already been merged with master
   sweep = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d && git remote prune origin && git gc"
-
-
-  ### JIRA
-
-  # Open JIRA ticket based on number ($1)
-  jira = "!open http://jira:8090/browse/NMSRV-$(git current | sed -r 's/[^0-9]*([0-9]+).*/\\1/g')"
-
-  # Recreate unstable, merge branch ($1)
-  test = "!git restable && git merge --no-ff $1"
 
 
 [apply]
