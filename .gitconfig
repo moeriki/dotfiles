@@ -176,9 +176,11 @@
 
 [color "diff"]
   meta = yellow bold
-  frag = magenta bold # line info
-  old = red # deletions
-  new = green # additions
+  frag = magenta bold
+  old = red
+  oldMoved = cyan dim
+  new = green
+  newMoved = blue
 
 
 [color "diff-highlight"]
@@ -195,7 +197,9 @@
 
 
 [diff]
-  compactionHeuristic = true
+  compaction-heuristic = true
+  color-moved = default
+  color-moved-ws = allow-indentation-change
   tool = Kaleidoscope
   # Detect copies as well as renames
   renames = copies
