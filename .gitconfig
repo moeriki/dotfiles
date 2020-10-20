@@ -57,7 +57,7 @@
   retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
 
   # Recreate a local branch from master
-  recreate = "reset --hard master"
+  recreate = "!git fetch && reset --hard origin/master"
 
   # Rebase onto remote master (or other remote)
   remaster = "!git fetch && git rebase origin/${1-master}"
