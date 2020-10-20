@@ -1,5 +1,4 @@
 [alias]
-
   # List all git aliases
   al = "!git config -l | grep alias | cut -c 7-"
 
@@ -148,12 +147,10 @@
 
 
 [apply]
-
   # Detect whitespace errors when applying a patch
   whitespace = fix
 
 [core]
-
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
@@ -176,37 +173,38 @@
   # insanely beautiful diffs
   pager = diff-so-fancy | less --tabs=4 -RFX
 
-[color]
 
+[color]
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
   ui = auto
 
-[color "branch"]
 
+[color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
 
-[color "diff"]
 
+[color "diff"]
   meta = yellow bold
   frag = magenta bold # line info
   old = red # deletions
   new = green # additions
 
-[color "diff-highlight"]
 
+[color "diff-highlight"]
   oldNormal = "red bold"
   oldHighlight = "red bold 52"
   newNormal = "green bold"
   newHighlight = "green bold 22"
 
-[color "status"]
 
+[color "status"]
   added = yellow
   changed = green
   untracked = cyan
+
 
 [diff]
   compactionHeuristic = true
@@ -214,17 +212,18 @@
   # Detect copies as well as renames
   renames = copies
 
+
 [diff "bin"]
   # Use `hexdump` to diff binary files
   textconv = hexdump -v -C
 
-[help]
 
+[help]
   # Automatically correct and execute mistyped commands
   autocorrect = 5
 
-[merge]
 
+[merge]
   # Include summaries of merged commits in newly created merge commit messages
   commit = no
   edit = no
@@ -232,65 +231,64 @@
   log = true
   tool = Kaleidoscope
 
-[pull]
 
+[pull]
   ff = yes
   rebase = yes
 
-[push]
 
+[push]
   default = simple
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
-# URL shorthands
 
 [url "git@github.com:"]
-
   insteadOf = "gh:"
   pushInsteadOf = "github:"
   pushInsteadOf = "git://github.com/"
+
 
 [url "git://github.com/"]
 
   insteadOf = "github:"
 
-[url "git@gist.github.com:"]
 
+[url "git@gist.github.com:"]
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
 
-[url "git://gist.github.com/"]
 
+[url "git://gist.github.com/"]
   insteadOf = "gist:"
 
-[user]
 
+[user]
   name = Dieter Luypaert
   email = dieterluypaert@gmail.com
 
-[credential]
 
+[credential]
   helper = osxkeychain
 
-[mergetool "Kaleidoscope"]
 
+[mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustexitcode = true
 
-[difftool "Kaleidoscope"]
 
+[difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
-[difftool]
 
+[difftool]
   prompt = false
+
 
 [mergetool]
-
   prompt = false
 
-[fetch]
 
+[fetch]
   prune = true
