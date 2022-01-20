@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-ffmpeg -i $1  -vcodec copy -acodec copy -bsf:a aac_adtstoasc $2

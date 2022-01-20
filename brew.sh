@@ -16,15 +16,12 @@ brew upgrade
 
 # Install Shells
 brew install autoenv shellcheck zsh zsh-autosuggestions zsh-syntax-highlighting
-brew tap homebrew/versions
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install tree
+brew install grep tree vim
 
 # Install tool alternatives
-brew install bat fd prettyping
+brew install exa bat fd prettyping
 
 # Developer utilies
 brew install git git-extras git-lfs hub git-delta
