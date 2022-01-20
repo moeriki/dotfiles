@@ -54,7 +54,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  autoenv
+  # autoenv
   aws
   brew
   colorize
@@ -62,11 +62,8 @@ plugins=(
   github
   npm
   z
+  zsh-autosuggestions
 )
-
-# Load ZSH plugin installed via homebrew
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
@@ -75,6 +72,3 @@ source $HOME/.zsh_profile
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NODEJS_ORG_MIRROR='https://npm.taobao.org/mirrors/node/'
-. $(brew --prefix asdf)/asdf.sh

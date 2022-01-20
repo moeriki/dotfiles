@@ -28,7 +28,7 @@ brew install bat fd prettyping
 
 # Developer utilies
 brew install git git-extras git-lfs hub git-delta
-brew install asdf httpie python trash
+brew install httpie python trash
 
 # Multimedia
 brew install imagemagick ffmpeg

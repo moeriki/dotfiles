@@ -3,8 +3,8 @@
   al = "!git config -l | grep alias | cut -c 7-"
 
   ### SHORTCUTS
-
-  branches = branch -a
+  b = branch --sort=committerdate
+  bs = branch -a --sort=committerdate
   c = checkout
   current = rev-parse --abbrev-ref HEAD
   forward = merge --ff
@@ -34,17 +34,20 @@
   # Jump between branches like 'z' or 'j'
   g = "!f() { git branch | grep -i \"$1\" | head -1 | xargs git checkout; }; f"
 
+  # Find main branch name
+  main = "!f() { git remote show origin | grep \"HEAD branch\" | cut -d ":" -f 2; }; f"
+
   # Jump to a master branch
-  m = "!f() { git branch | grep \"${master}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+  m = "!f() { git branch | grep $(git main) | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
   # Jump to a test branch
-  t = "!f() { git branch | grep \"${test}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+  t = "!f() { git branch | grep test | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
   # Jump to an unstable branch
-  u = "!f() { git branch | grep \"${unstable}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+  u = "!f() { git branch | grep unstable | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
   # Jump to a develop branch
-  v = "!f() { git branch | grep \"${develop}\" | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
+  v = "!f() { git branch | grep develop | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
 
   # Switch to a branch, creating it if necessary
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"${1-master}\"; }; f"
@@ -134,9 +137,14 @@
   sweep = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d && git remote prune origin && git gc"
 
 
+[init]
+	defaultBranch = main
+
+
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
+
 
 [core]
   # Use custom `.gitignore` and `.gitattributes`
@@ -155,7 +163,7 @@
   # Prevent showing files whose names contain non-ASCII symbols as unversioned.
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
-  editor = vi
+  editor = code --wait
   mergeoptions = --no-edit
 
   # insanely beautiful diffs
@@ -215,7 +223,6 @@
   compaction-heuristic = true
   color-moved = default
   color-moved-ws = allow-indentation-change
-  tool = Kaleidoscope
   # Detect copies as well as renames
   renames = copies
 
@@ -236,7 +243,6 @@
   edit = no
   ff = no
   log = true
-  tool = Kaleidoscope
 
 
 [pull]
@@ -281,20 +287,7 @@
 
 
 [mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustexitcode = true
-
-
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-
-[difftool]
-  prompt = false
-
-
-[mergetool]
-  prompt = false
 
 
 [fetch]
