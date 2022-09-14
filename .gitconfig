@@ -1,35 +1,18 @@
 [alias]
-  # List all git aliases
-  al = "!git config -l | grep alias | cut -c 7-"
-
   ### SHORTCUTS
   b = branch --sort=committerdate
   bs = branch -a --sort=committerdate
-  c = checkout
   current = rev-parse --abbrev-ref HEAD
-  forward = merge --ff
-  merge = merge --no-ff
-  merged = branch -a --merged
-  p = add -p
   pick = cherry-pick
   please = push --force-with-lease
   remotes = remote -v
   s = status -sb
-  stage = add -p
   staged = diff --staged
-  stsh = stash --keep-index          # stash only unstaged changes to tracked files
-  staash = stash --include-untracked # stash untracked and tracked files
-  staaash = stash --all              # stash ignored, untracked, and tracked files
   tags = tag -l
-  unmerged = branch -a --no-merge
-  unstage = reset HEAD --
   up = push -u origin HEAD
   uplease = up --force-with-lease
 
   ### BRANCHING
-
-  # Rebase onto remote of current branch
-  down = "!git fetch && git rebase origin/HEAD"
 
   # Jump between branches like 'z' or 'j'
   g = "!f() { git branch | grep -i \"$1\" | head -1 | xargs git checkout; }; f"
@@ -37,38 +20,12 @@
   # Find main branch name
   main = "!f() { git remote show origin | grep \"HEAD branch\" | cut -d ":" -f 2; }; f"
 
-  # Jump to a master branch
-  m = "!f() { git branch | grep $(git main) | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
-
-  # Jump to a test branch
-  t = "!f() { git branch | grep test | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
-
-  # Jump to an unstable branch
-  u = "!f() { git branch | grep unstable | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
-
-  # Jump to a develop branch
-  v = "!f() { git branch | grep develop | tr -d '* ' | sort -r | head -1 | xargs git checkout; }; f"
-
-  # Switch to a branch, creating it if necessary
-  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"${1-master}\"; }; f"
+  # Jump to the main branch
+  m = "!f() { git main | xargs git checkout; }; f"
 
   # The first commit of a repository can not be rebased like regular commits,
-  # so it’s good practice to create an empty commit as your repository root.
+  # so it's good practice to create an empty commit as your repository root.
   it = "!git init && git commit -m 'root' --allow-empty"
-
-  # Remove the old tag with this name and tag the latest commit with it.
-  retag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; f"
-
-  # Recreate a local branch from master
-  recreate = "!git fetch && reset --hard origin/master"
-
-  # Rebase onto remote master (or other remote)
-  remaster = "!git fetch && git rebase origin/${1-master}"
-
-  retrack = "reset --hard origin/HEAD"
-
-  # Fire up difftool with all the changes that are on the current branch.
-  review = difftool origin/master...
 
 
   ### COMMITING
@@ -79,14 +36,11 @@
   # Faster commiting
   ci = "!f() { git commit -m \"$@\"; }; f"
 
-  # Credit an author on the latest commit
-  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-
   # Open files that are changed in editor
   wip = "!git status -s | grep -v '\bD\b' | cut -d ' ' -f 3 | xargs $1"
 
   # Save all files as WIP
-  WIP = "!git add -A && git commit -m 'WIP'"
+  WIP = "!git add . && git commit -m 'WIP'"
 
 
   ### MERGING
@@ -94,17 +48,8 @@
   # Open merge conflicted files in editor
   fix = "!git diff --name-only --diff-filter=U | uniq | xargs code $1"
 
-  # Checkout our version of a file and add it
-  ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-
-  # Checkout their version of a file and add it
-  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-
 
   ### LOGS
-
-  # List contributors with number of commits
-  contributors = shortlog --summary --numbered --no-merges
 
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -122,19 +67,8 @@
   ft = "!f() { git describe --always --contains $1; }; f"
 
   # View abbreviated SHA, description, and history graph of the latest 20 commits
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-
-  ### CLEAN UP
-
-  gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-
-  # Fuck it
-  fuckit = "!git sweep && git clean -dfx && git stash clear"
-
-  # Remove branches that have already been merged with master
-  sweep = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d && git remote prune origin && git gc"
+  l = log --abbrev-commit --graph --pretty=oneline
+  lg = log --abbrev-commit --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
 
 [init]
@@ -226,23 +160,43 @@
   # Detect copies as well as renames
   renames = copies
 
+[difftool]
+  prompt = false
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [diff "bin"]
   # Use `hexdump` to diff binary files
   textconv = hexdump -v -C
 
 
+[fetch]
+  prune = true
+
+
 [help]
-  # Automatically correct and execute mistyped commands
   autocorrect = 5
 
 
+[init]
+	defaultBranch = main
+
+
 [merge]
-  # Include summaries of merged commits in newly created merge commit messages
   commit = no
   edit = no
   ff = no
+  keepBackup = false
   log = true
+  tool = Kaleidoscope
+
+[mergetool]
+  prompt = false
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 
 
 [pull]
@@ -252,7 +206,6 @@
 
 [push]
   default = simple
-  # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
 
@@ -263,7 +216,6 @@
 
 
 [url "git://github.com/"]
-
   insteadOf = "github:"
 
 
@@ -279,16 +231,4 @@
 
 [user]
   name = Dieter Luypaert
-  email = dieterluypaert@gmail.com
-
-
-[credential]
-  helper = osxkeychain
-
-
-[mergetool "Kaleidoscope"]
-  trustexitcode = true
-
-
-[fetch]
-  prune = true
+  email = hey@moeriki.com
